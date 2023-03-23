@@ -1,44 +1,15 @@
 import { getRounds, hashSync } from "bcryptjs";
-import {
-	Entity,
-	Column,
-	PrimaryGeneratedColumn,
-	CreateDateColumn,
-	UpdateDateColumn,
-	DeleteDateColumn,
-	OneToMany,
-	BeforeInsert,
-	BeforeUpdate,
-} from "typeorm";
+import { Entity, Column, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
+import { CommonInfo } from "./commonInfo.entity";
+import { Contact } from "./contact.entity";
 
 @Entity("users")
-export class User {
-	@PrimaryGeneratedColumn("uuid")
-	id: string;
-
-	@Column({ length: 45 })
-	name: string;
-
-	@Column({ length: 45 })
-	email: string;
-
+export class User extends CommonInfo {
 	@Column({ length: 120 })
 	password: string;
 
-	@Column({ length: 11 })
-	phone: string;
-
-	@CreateDateColumn()
-	createdAt: string;
-
-	@UpdateDateColumn()
-	updateAt: string;
-
-	@DeleteDateColumn()
-	deletedAt: string;
-
-	// @OneToMany( () => Contact, (contact) => contact.user)
-	// contacts: Contact[]
+	@OneToMany(() => Contact, (contact) => contact.user)
+	contacts: Contact[];
 
 	@BeforeInsert()
 	@BeforeUpdate()
