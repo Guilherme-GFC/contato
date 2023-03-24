@@ -6,7 +6,7 @@ import { returnUserSchema } from "../../schemas/users.schemas";
 
 const createUserService = async (userData: IUser): Promise<IUserReturn> => {
 	const userRepository: Repository<User> = AppDataSource.getRepository(User);
-	const user: User = userRepository.create(userData);
+	const user = userRepository.create(userData);
 
 	await userRepository.save(user);
 

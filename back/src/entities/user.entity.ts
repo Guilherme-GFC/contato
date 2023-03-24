@@ -5,6 +5,9 @@ import { Contact } from "./contact.entity";
 
 @Entity("users")
 export class User extends CommonInfo {
+	@Column({ length: 45, unique: true })
+	email: string;
+
 	@Column({ length: 120 })
 	password: string;
 
