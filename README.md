@@ -604,7 +604,7 @@ Content-type: application/json
 ### Exemplo de Response:
 
 ```
-200 Created
+200 OK
 ```
 
 ```json
