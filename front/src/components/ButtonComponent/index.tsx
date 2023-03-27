@@ -1,11 +1,19 @@
 import { Button } from "@chakra-ui/react";
+import { ReactNode } from "react";
+
+interface IButtonComponentProps {
+	type?: "button" | "submit" | "reset" | undefined;
+	color?: string | undefined;
+	onClick?: () => void;
+	children: ReactNode;
+}
 
 export const ButtonComponent = ({
 	type,
 	color,
 	onClick = () => {},
 	children,
-}: any) => {
+}: IButtonComponentProps) => {
 	return (
 		<Button
 			type={type}

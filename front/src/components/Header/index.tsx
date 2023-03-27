@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useContactContext } from "../../context/contactContext";
 import { ButtonComponent } from "../ButtonComponent";
 
-export const Header = ({ signInOrUp, isHomePage = false }: any) => {
+interface IHeaderProps {
+	isHomePage?: boolean;
+}
+
+export const Header = ({ isHomePage = false }: IHeaderProps) => {
 	const navigate = useNavigate();
 	const { isSignUp, setIsSignUp, setContactInfo, setIsShowCard } =
 		useContactContext();

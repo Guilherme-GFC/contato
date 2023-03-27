@@ -17,14 +17,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../validators/register";
 import { ButtonComponent } from "../ButtonComponent";
-import { ContactButtonOptions } from "../ContactButtonOptions";
 import { registerContactSchema } from "../../validators/registerContact";
+
+interface ISignUpFormProps {
+	isContact?: boolean;
+	isNewContact?: boolean;
+	onClose: () => void;
+}
 
 export const SignUpForm = ({
 	isContact = true,
 	isNewContact = false,
 	onClose,
-}: any) => {
+}: ISignUpFormProps) => {
 	const {
 		isEditing,
 		contactInfo,
