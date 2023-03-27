@@ -23,6 +23,7 @@ contactRoutes.post(
 	createContactController
 );
 contactRoutes.get("/:id", ensureAuthMiddleware, retrieveContactController);
+
 contactRoutes.patch(
 	"/:id",
 	ensureAuthMiddleware,
